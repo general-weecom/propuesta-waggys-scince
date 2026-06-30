@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Waggy’s Science — Sección de respaldo científico</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   WAGGY'S SCIENCE — bloque autocontenido, scopeado con .ws-
+   Paleta tomada de waggys.pet: blanco + verde + coral.
+   Edita los tokens de :root para igualar tu tema al 100%.
+   En Shopify: Personalizar → "Liquid personalizado" →
+   pega desde <section class="ws-section"> hasta su cierre.
+   ============================================================ */
+.ws-section{
+  /* —— tokens de marca (editar aquí) —— */
+  --ws-bg:#FFFFFF;            /* fondo (como tu sitio) */
+  --ws-ink:#23252E;          /* títulos oscuros (estilo título de producto) */
+  --ws-body:#474B53;         /* texto */
+  --ws-green:#3DA85A;        /* verde Waggy's (acento de identidad) */
+  --ws-green-deep:#2E8B49;   /* verde para títulos grandes (contraste) */
+  --ws-green-ink:#2C7A45;    /* verde para texto pequeño sobre claro */
+  --ws-green-soft:#E9F5ED;   /* superficie verde suave */
+  --ws-coral:#EA7C6D;        /* coral/salmón (acción + énfasis) */
+  --ws-coral-deep:#E0685A;   /* coral hover */
+  --ws-coral-ink:#C9543F;    /* coral como texto sobre claro */
+  --ws-coral-soft:#FBEEEA;   /* coral suave (panel) */
+  --ws-gold:#F6B62C;         /* estrellas */
+  --ws-line:#EFEDE8;         /* borde sutil */
+  --ws-white:#FFFFFF;
+
+  --ws-radius:24px;
+  --ws-radius-sm:16px;
+  --ws-maxw:1140px;
+  --ws-font:"Poppins",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+
+  background:var(--ws-bg);
+  color:var(--ws-body);
+  font-family:var(--ws-font);
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  border-top:4px solid var(--ws-coral);          /* línea coral superior, como tu sitio */
+  padding:clamp(46px,8vw,96px) clamp(18px,5vw,40px);
+}
+.ws-section *,
+.ws-section *::before,
+.ws-section *::after{box-sizing:border-box;}
+.ws-wrap{max-width:var(--ws-maxw);margin:0 auto;}
+
+/* ---------- Encabezado ---------- */
+.ws-head{max-width:790px;}
+.ws-pill{
+  display:inline-flex;align-items:center;gap:8px;
+  margin:0 0 18px;padding:9px 16px;border-radius:999px;
+  background:var(--ws-white);border:1.6px solid var(--ws-coral);
+  font-size:.82rem;font-weight:600;color:var(--ws-ink);
+}
+.ws-pill svg{width:16px;height:16px;color:var(--ws-coral);}
+.ws-title{
+  margin:0;font-weight:800;
+  font-size:clamp(2.3rem,7vw,4rem);line-height:1.03;
+  letter-spacing:-.02em;color:var(--ws-green-deep);
+}
+.ws-sub{
+  margin:18px 0 0;font-size:clamp(1.02rem,2.4vw,1.18rem);line-height:1.6;
+  color:var(--ws-body);max-width:60ch;font-weight:400;
+}
+
+/* ---------- Beneficios con ícono verde circular (estilo del sitio) ---------- */
+.ws-vets{list-style:none;margin:clamp(26px,4vw,38px) 0 0;padding:0;display:flex;flex-wrap:wrap;gap:14px 26px;}
+.ws-vets li{display:inline-flex;align-items:center;gap:12px;}
+.ws-ico{
+  width:46px;height:46px;flex:none;border-radius:999px;
+  border:1.7px solid var(--ws-green);display:grid;place-items:center;color:var(--ws-green);
+}
+.ws-ico svg{width:22px;height:22px;}
+.ws-vets b{font-weight:600;font-size:.95rem;color:var(--ws-ink);}
+
+/* ---------- Evidencia en números ---------- */
+.ws-numbers{list-style:none;margin:clamp(28px,4vw,40px) 0 0;padding:0;display:grid;grid-template-columns:1fr;gap:12px;}
+.ws-num{background:var(--ws-green-soft);border-radius:var(--ws-radius-sm);padding:20px clamp(18px,3vw,26px);display:flex;align-items:baseline;gap:14px;}
+.ws-num-fig{font-weight:800;font-size:clamp(2rem,5vw,2.6rem);line-height:1;color:var(--ws-green);min-width:1.5em;}
+.ws-num-label{font-size:.92rem;line-height:1.35;color:#3C4A40;font-weight:500;}
+
+/* ---------- Tarjetas ---------- */
+.ws-card{
+  background:var(--ws-white);border:1px solid var(--ws-line);border-radius:var(--ws-radius);
+  padding:clamp(24px,4vw,40px);box-shadow:0 6px 24px rgba(35,37,46,.06);
+}
+.ws-tag{
+  display:inline-flex;align-items:center;gap:7px;
+  font-size:.72rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;
+  padding:8px 14px;border-radius:999px;background:var(--ws-green-soft);color:var(--ws-green-ink);margin-bottom:18px;
+}
+.ws-tag svg{width:14px;height:14px;}
+.ws-card-title{font-weight:700;font-size:clamp(1.3rem,3.1vw,1.72rem);line-height:1.18;letter-spacing:-.01em;margin:0 0 12px;color:var(--ws-ink);}
+.ws-formal{font-style:italic;font-weight:400;font-size:.93rem;line-height:1.45;color:#6E7268;margin:0 0 6px;}
+.ws-author{font-size:.82rem;font-weight:700;color:var(--ws-coral-ink);margin:0 0 16px;}
+.ws-text{font-size:1rem;line-height:1.62;color:var(--ws-body);margin:0 0 22px;max-width:60ch;}
+
+/* chips de datos */
+.ws-stats{list-style:none;margin:0 0 22px;padding:0;display:flex;flex-wrap:wrap;gap:10px;}
+.ws-stat{display:flex;flex-direction:column;gap:2px;padding:12px 16px;border-radius:14px;background:var(--ws-green-soft);min-width:120px;}
+.ws-stat-val{font-weight:800;font-size:1.02rem;color:var(--ws-green-ink);letter-spacing:-.01em;}
+.ws-stat-key{font-size:.74rem;line-height:1.25;color:#5E6258;font-weight:500;}
+
+/* link */
+.ws-link{display:inline-flex;align-items:center;gap:.45em;font-weight:700;font-size:.95rem;text-decoration:none;color:var(--ws-green-ink);border-bottom:2px solid var(--ws-coral);padding-bottom:2px;transition:gap .2s ease,color .2s ease;}
+.ws-link::after{content:"→";transition:transform .2s ease;}
+.ws-link:hover{color:var(--ws-coral-ink);}
+.ws-link:hover::after{transform:translateX(3px);}
+.ws-note{font-size:.78rem;color:#7C8074;font-weight:600;}
+
+/* ---------- Tarjeta destacada (verde) ---------- */
+.ws-card--feature{
+  background:linear-gradient(155deg,#43B061 0%,#2F8E4B 100%);
+  border:0;color:#fff;margin-top:18px;position:relative;overflow:hidden;
+  box-shadow:0 14px 34px rgba(46,139,73,.26);
+}
+.ws-card--feature::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(120% 100% at 100% 0%,rgba(255,255,255,.16),transparent 55%);}
+.ws-card--feature>*{position:relative;}
+.ws-card--feature .ws-tag{background:rgba(255,255,255,.18);color:#fff;}
+.ws-card--feature .ws-card-title{color:#fff;}
+.ws-card--feature .ws-formal{color:rgba(255,255,255,.82);}
+.ws-card--feature .ws-author{color:#fff;}
+.ws-card--feature .ws-text{color:rgba(255,255,255,.92);}
+.ws-card--feature .ws-stat{background:rgba(255,255,255,.15);}
+.ws-card--feature .ws-stat-val{color:#fff;}
+.ws-card--feature .ws-stat-key{color:rgba(255,255,255,.85);}
+.ws-card--feature .ws-link{color:#fff;border-bottom-color:var(--ws-coral);}
+.ws-card--feature .ws-link:hover{color:#FFE9E3;}
+.ws-feat-badge{position:absolute;top:clamp(20px,4vw,32px);right:clamp(20px,4vw,32px);display:inline-flex;align-items:center;gap:6px;font-size:.68rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:rgba(255,255,255,.88);}
+.ws-feat-badge svg{width:13px;height:13px;}
+
+/* ---------- Grid de las otras dos ---------- */
+.ws-grid{display:grid;grid-template-columns:1fr;gap:18px;margin-top:18px;}
+
+/* ---------- Mini comparación (barras) ---------- */
+.ws-bars{margin:2px 0 22px;}
+.ws-bar-row{display:flex;align-items:center;gap:12px;margin-bottom:11px;}
+.ws-bar-label{flex:0 0 130px;font-size:.82rem;line-height:1.2;color:var(--ws-ink);font-weight:600;}
+.ws-bar-track{flex:1;height:32px;background:#EEF4EE;border-radius:10px;overflow:hidden;}
+.ws-bar-fill{height:100%;width:var(--w);border-radius:10px;display:flex;align-items:center;justify-content:flex-end;padding-right:11px;background:#D8D5CE;font-weight:800;font-size:.82rem;color:#3C4239;transition:width 1s cubic-bezier(.2,.7,.2,1);}
+.ws-bar-fill--win{background:var(--ws-green);color:#fff;}
+.ws-bars-cap{font-size:.78rem;color:#73776C;margin:4px 0 0;font-weight:600;}
+
+/* ---------- Cierre / CTA (panel coral suave, como tu sitio) ---------- */
+.ws-foot{
+  margin-top:clamp(34px,5vw,52px);padding:clamp(28px,4.5vw,46px);
+  border-radius:var(--ws-radius);background:var(--ws-coral-soft);
+  display:flex;flex-direction:column;gap:20px;align-items:flex-start;
+}
+.ws-foot-rating{display:inline-flex;align-items:center;gap:9px;padding:9px 16px;border-radius:999px;background:var(--ws-white);border:1.6px solid var(--ws-coral);font-size:.82rem;font-weight:600;color:var(--ws-ink);}
+.ws-stars{color:var(--ws-gold);letter-spacing:1px;font-size:.92rem;}
+.ws-foot-text{font-weight:800;font-size:clamp(1.4rem,3.3vw,2rem);line-height:1.18;margin:0;max-width:24ch;color:var(--ws-green-deep);letter-spacing:-.01em;}
+.ws-foot-text span{color:var(--ws-coral-ink);}
+.ws-cta{
+  display:inline-flex;align-items:center;gap:.5em;
+  background:var(--ws-coral);color:#fff;font-weight:700;font-size:1rem;text-transform:uppercase;letter-spacing:.04em;
+  text-decoration:none;padding:17px 32px;border-radius:14px;
+  box-shadow:0 8px 20px rgba(234,124,109,.36);transition:transform .2s ease,background .2s ease;
+}
+.ws-cta::after{content:"→";transition:transform .2s ease;}
+.ws-cta:hover{background:var(--ws-coral-deep);transform:translateY(-2px);}
+.ws-cta:hover::after{transform:translateX(3px);}
+
+.ws-disclaimer{margin:24px auto 0;max-width:var(--ws-maxw);font-size:.78rem;line-height:1.5;color:#8A8E83;text-align:center;font-weight:400;}
+.ws-section a:focus-visible{outline:3px solid var(--ws-coral);outline-offset:3px;border-radius:6px;}
+
+/* ---------- Reveal (con guarda anti-flash) ---------- */
+@media (prefers-reduced-motion:no-preference){
+  .ws-js .ws-reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease;}
+  .ws-js .ws-reveal.is-in{opacity:1;transform:none;}
+}
+
+/* ===================== BREAKPOINTS ===================== */
+@media (min-width:640px){
+  .ws-numbers{grid-template-columns:repeat(3,1fr);}
+  .ws-num{flex-direction:column;gap:6px;}
+  .ws-foot{flex-direction:row;align-items:center;flex-wrap:wrap;gap:18px 28px;}
+  .ws-foot-text{flex:1 1 300px;}
+  .ws-foot-rating{order:-1;flex-basis:100%;}
+}
+@media (min-width:920px){
+  .ws-grid{grid-template-columns:1fr 1fr;}
+}
+</style>
+</head>
+<body>
+
+<section class="ws-section" aria-labelledby="ws-title">
+  <div class="ws-wrap">
+
+    <!-- Encabezado -->
+    <header class="ws-head ws-reveal">
+      <span class="ws-pill">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2v6M15 2v6M9 5h6"/><path d="M9 8a3 3 0 0 0 6 0"/><path d="M12 11v5a4 4 0 0 1-8 0v-1"/><circle cx="4" cy="14" r="2"/></svg>
+        Respaldo clínico real
+      </span>
+      <h2 class="ws-title" id="ws-title">Waggy’s Science</h2>
+      <p class="ws-sub">El bienestar de tu compañero no debería basarse en promesas. Nuestro aceite botánico estandarizado ha sido evaluado en dos tesis universitarias y en un artículo científico publicado —con perros y gatos reales, bajo escalas de dolor validadas internacionalmente.</p>
+
+      <!-- Beneficios con ícono verde circular -->
+      <ul class="ws-vets">
+        <li>
+          <span class="ws-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2v6M15 2v6M9 5h6"/><path d="M9 8a3 3 0 0 0 6 0"/><path d="M12 11v5a4 4 0 0 1-8 0v-1"/><circle cx="4" cy="14" r="2"/></svg></span>
+          <b>Formulado por veterinarios</b>
+        </li>
+        <li>
+          <span class="ws-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 3v6.5L5 18a2 2 0 0 0 1.8 3h10.4A2 2 0 0 0 19 18l-5-8.5V3"/><path d="M7.5 14h9"/></svg></span>
+          <b>Evaluado en estudios clínicos</b>
+        </li>
+        <li>
+          <span class="ws-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 4 13c0-5 4-9 9-10 0 4-1 6-3 8"/><path d="M11 20c0-4 2-7 6-9 1.5-.8 3-1 4-1 0 4-3 9-8 10z"/></svg></span>
+          <b>100% natural</b>
+        </li>
+      </ul>
+    </header>
+
+    <!-- Evidencia en números -->
+    <ul class="ws-numbers ws-reveal">
+      <li class="ws-num"><span class="ws-num-fig">02</span><span class="ws-num-label">Tesis universitarias dedicadas a nuestra fórmula</span></li>
+      <li class="ws-num"><span class="ws-num-fig">01</span><span class="ws-num-label">Artículo científico publicado (con DOI)</span></li>
+      <li class="ws-num"><span class="ws-num-fig">96</span><span class="ws-num-label">Perros y gatos evaluados clínicamente</span></li>
+    </ul>
+
+    <!-- Estudio destacado: Maestría -->
+    <article class="ws-card ws-card--feature ws-reveal">
+      <span class="ws-feat-badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 6v6c0 5 3.5 8 8 10 4.5-2 8-5 8-10V6z"/><path d="m9 12 2 2 4-4"/></svg>
+        Evidencia más robusta
+      </span>
+      <span class="ws-tag">Tesis de Maestría · UABC</span>
+      <h3 class="ws-card-title">Reduce de forma significativa el dolor agudo tras la cirugía</h3>
+      <p class="ws-formal">«Evaluación de Waggy’s aceite botánico estandarizado como inmunomodulador y analgésico de la respuesta inflamatoria de fase aguda en perros sometidos a traumatismo quirúrgico».</p>
+      <p class="ws-author">MVZ MC Mariana Abygail Bañuelos Wancho</p>
+      <p class="ws-text">En 18 perras operadas (ovariohisterectomía), sumar el aceite botánico al tratamiento veterinario produjo significativamente menos dolor a las 12 horas, con un efecto de gran magnitud.</p>
+      <ul class="ws-stats">
+        <li class="ws-stat"><span class="ws-stat-val">n = 18</span><span class="ws-stat-key">perras (post-cirugía)</span></li>
+        <li class="ws-stat"><span class="ws-stat-val">P = 0.0050</span><span class="ws-stat-key">menos dolor a las 12 h</span></li>
+        <li class="ws-stat"><span class="ws-stat-val">r = 0.69–0.76</span><span class="ws-stat-key">tamaño de efecto grande</span></li>
+      </ul>
+      <a class="ws-link" href="https://repositorioinstitucional.uabc.mx/items/6f721251-46b9-4e17-a6d1-acee34dd746a" target="_blank" rel="noopener">Ver la tesis en el repositorio UABC</a>
+    </article>
+
+    <!-- Otras dos -->
+    <div class="ws-grid">
+
+      <!-- Licenciatura -->
+      <article class="ws-card ws-reveal">
+        <span class="ws-tag">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          Tesis de Licenciatura
+        </span>
+        <h3 class="ws-card-title">Alivia el dolor visceral y somático, sin opioides</h3>
+        <p class="ws-formal">«Evaluación de la eficacia de Waggy’s aceite botánico estandarizado en el manejo del dolor visceral y somático en perros mediante la escala compuesta de Glasgow».</p>
+        <p class="ws-author">MVZ Omar Díaz Rodríguez</p>
+        <p class="ws-text">Una alternativa no narcótica. En 60 perros, una dosis oral de 2 mg/kg redujo de forma significativa las puntuaciones de dolor en la escala de Glasgow (CMPS-SF), actuando sobre los receptores CB-1 y CB-2.</p>
+        <ul class="ws-stats">
+          <li class="ws-stat"><span class="ws-stat-val">n = 60</span><span class="ws-stat-key">perros evaluados</span></li>
+          <li class="ws-stat"><span class="ws-stat-val">2 mg/kg</span><span class="ws-stat-key">dosis oral</span></li>
+          <li class="ws-stat"><span class="ws-stat-val">CB-1 / CB-2</span><span class="ws-stat-key">mecanismo de acción</span></li>
+        </ul>
+        <span class="ws-note">Investigación universitaria · escala validada CMPS-SF</span>
+      </article>
+
+      <!-- Artículo publicado (gatos) -->
+      <article class="ws-card ws-reveal">
+        <span class="ws-tag">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7v6a9 9 0 0 0 18 0V7l-3 2-2-3-4 2-4-2-2 3z"/><circle cx="9" cy="13" r=".6" fill="currentColor"/><circle cx="15" cy="13" r=".6" fill="currentColor"/></svg>
+          Artículo publicado · DOI
+        </span>
+        <h3 class="ws-card-title">En gatos: cero dolor y cicatrización más rápida</h3>
+        <p class="ws-formal">«Uso sinérgico con AINEs para controlar el dolor agudo en gatos» — Figueroa Vázquez, V. S. et al.</p>
+        <p class="ws-author">Revista científica · con DOI</p>
+        <p class="ws-text">18 gatas tras cirugía. El grupo que recibió Waggy’s junto al AINE no presentó dolor y cicatrizó significativamente más rápido, sin alteraciones en sus análisis de sangre.</p>
+
+        <div class="ws-bars" role="img" aria-label="Pacientes sin dolor postquirúrgico: con Waggy’s más AINE, 100 por ciento; solo AINE, 60 por ciento.">
+          <div class="ws-bar-row">
+            <span class="ws-bar-label">Con Waggy’s + AINE</span>
+            <div class="ws-bar-track"><div class="ws-bar-fill ws-bar-fill--win" style="--w:100%"><span>100%</span></div></div>
+          </div>
+          <div class="ws-bar-row">
+            <span class="ws-bar-label">Solo AINE</span>
+            <div class="ws-bar-track"><div class="ws-bar-fill" style="--w:60%"><span>60%</span></div></div>
+          </div>
+          <p class="ws-bars-cap">% de pacientes sin dolor postquirúrgico</p>
+        </div>
+
+        <a class="ws-link" href="https://doi.org/10.15174/jc.2024.4404" target="_blank" rel="noopener">Leer el artículo (DOI)</a>
+      </article>
+
+    </div>
+
+    <!-- Cierre / CTA -->
+    <footer class="ws-foot ws-reveal">
+      <span class="ws-foot-rating"><span class="ws-stars">★★★★★</span> 4.8/5 · +250,000 familias felices</span>
+      <p class="ws-foot-text">Ciencia real para <span>cuidar a quien más quieres</span>.</p>
+      <a class="ws-cta" href="/products/aceite-perros-calmante-piel-dolor-inflamacion">Conoce el Aceite Calmante</a>
+    </footer>
+
+  </div>
+
+  <p class="ws-disclaimer">Estudios realizados como coadyuvante del tratamiento veterinario. Los resultados pueden variar según cada caso. Consulta siempre a tu médico veterinario.</p>
+
+</section>
+
+<script>
+/* Reveal progresivo — agrega .ws-js solo si hay JS (evita ocultar sin motor) */
+(function(){
+  var sec=document.querySelector('.ws-section');
+  if(!sec) return;
+  if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  sec.classList.add('ws-js');
+  var items=sec.querySelectorAll('.ws-reveal');
+  if(!('IntersectionObserver' in window)){items.forEach(function(el){el.classList.add('is-in');});return;}
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){e.target.style.transitionDelay=(e.target.dataset.d||0)+'ms';e.target.classList.add('is-in');io.unobserve(e.target);}
+    });
+  },{threshold:.12,rootMargin:'0px 0px -8% 0px'});
+  items.forEach(function(el,i){el.dataset.d=(i%3)*90;io.observe(el);});
+})();
+</script>
+
+</body>
+</html>
